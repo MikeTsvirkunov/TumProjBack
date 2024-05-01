@@ -1,11 +1,12 @@
 from pydantic import BaseModel
 from tum_proj.getters.get_git_page import get_github_page
+from tum_proj.initiators import std_initiation
 from tum_proj.models.git_models import GitHubLinkModel
 from fastapi import FastAPI
 import uuid
 
 from tum_proj.processors.links_processors import split_github_link
-
+std_initiation()
 app = FastAPI()
 
 
@@ -25,7 +26,7 @@ async def send_pull_request(link: Link):
         page = get_github_page(link_model.link)
         with open(f'../{uuid.uuid4()}.html', 'w') as f:
             f.write(page)
-        return 
+        return split_github_link(link.link).model_dump_json()
     return split_github_link(link.link).model_dump_json()
 
 class PullRequestDescription(BaseModel):
