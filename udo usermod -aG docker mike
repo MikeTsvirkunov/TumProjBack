@@ -1,0 +1,28 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Fri 2024-05-10 23:14:21 +06; 55min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2430 (dockerd)
+      Tasks: 70
+     Memory: 130.1M
+        CPU: 3.437s
+     CGroup: /system.slice/docker.service
+             ├─2430 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+             ├─3296 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5433 -container-ip 172.18.0.2 -container-port 5432
+             ├─3302 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5433 -container-ip 172.18.0.2 -container-port 5432
+             ├─3316 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 6379 -container-ip 172.18.0.3 -container-port 6379
+             ├─3322 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 6379 -container-ip 172.18.0.3 -container-port 6379
+             ├─3365 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5050 -container-ip 172.18.0.4 -container-port 80
+             └─3379 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5050 -container-ip 172.18.0.4 -container-port 80
+
+мая 10 23:14:20 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:20.508579204+06:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint e7741e34eff6e989a18a730d302d6cad74203576841270576f3dc2026028cbe4 e5a62b00cb91bf181f725461d04439d5aac7a6f979ac2bdb1aeada8314f8d2cd], retrying...."
+мая 10 23:14:20 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:20.812186226+06:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+мая 10 23:14:20 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:20.939523639+06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+мая 10 23:14:20 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:20.952593247+06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:21.043439780+06:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:21.567361884+06:00" level=info msg="Loading containers: done."
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:21.596623774+06:00" level=info msg="Docker daemon" commit=8b79278 containerd-snapshotter=false storage-driver=overlay2 version=26.0.0
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:21.597438472+06:00" level=info msg="Daemon has completed initialization"
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV systemd[1]: Started Docker Application Container Engine.
+мая 10 23:14:21 mike-ASUS-TUF-Gaming-A15-FA506IV-FX506IV dockerd[2430]: time="2024-05-10T23:14:21.671206786+06:00" level=info msg="API listen on /run/docker.sock"
