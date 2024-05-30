@@ -1,0 +1,89 @@
+Миш, напиши эндпоинт для работы БД, включающий в себя:
+
+1) Регистрацию PR, принимающего на вход: POST(INSERT INTO) на создание PR в нашей системе
+    - id юзера
+    - ссылку на pr
+    - комментарий к pr
+
+2) Получение юзера по его id.
+  На вход:
+    - id юзера
+  На выходе
+    - id юзера
+    - его тип (студент/препод)
+    - логин
+    - препод к которому он привязан, если препод оставить пустым
+
+
+Таблица "Пользователи" --> Препод Таблица и студент таблица?????
+
+id (идентификатор пользователя)
+тип (студент/препод) -
+логин
+пароль
+id_препода (идентификатор препода, если есть связь с преподавателем)
+
+
+3) Валидацию юзера по логину и паролю.
+  На вход:
+    - логин юзера
+    - его пароль
+  На выходе:
+    - да/нет
+
+4) Получение всех PR привязаных к преподу:
+  На вход:
+    - id препода
+  На выходе:
+    - список PR-ов из объектов `PRForCheckModel```
+
+5) Регистрацию юзера.
+  На вход:
+    - логин 
+    - пароль
+  На выходе:
+    - успех операции
+
+
+
+
+
+
+
+
+
+
+
+
+TEACHER
+
+CREATE TABLE pages_schema.teacher
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    login character(30),
+    password character(30),
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS pages_schema.teacher
+    OWNER to postgres;
+
+
+PR
+
+CREATE TABLE pages_schema.pull_requests
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY,
+    link character NOT NULL,
+    comment character NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS pages_schema.pull_requests
+    OWNER to postgres;
+
+
+post(login, password)
+
+table teacher_pr
+
