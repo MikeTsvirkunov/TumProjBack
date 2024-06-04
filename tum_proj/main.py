@@ -1,4 +1,4 @@
-from tum_proj.psql_python import send_to_db_html_content, create_teacher, create_student, create_pull_request, select_pr_by_teacher_id
+from tum_proj.psql_python import send_to_db_html_content, create_teacher, create_student, create_pull_request, select_pr_by_teacher_id, check_student
 from pydantic import BaseModel
 from tum_proj.getters.get_git_page import get_github_page
 # from tum_proj.initiators import std_initiation
@@ -61,6 +61,19 @@ async def create_teacher_request(teach: Teacher):
     done = create_teacher(teach.login, teach.password)
 
     result = { "res" : done}
+
+    print(result)
+    
+    return result
+
+@app.post("/check_student")
+async def check_student_request(stud: Student):
+    done = check_student(stud.login, stud.password)
+
+    if len(done) != 0:
+        result = True
+    else:
+        result = False
 
     print(result)
     

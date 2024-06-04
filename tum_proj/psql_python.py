@@ -2,9 +2,40 @@ import psycopg2
 
 from tum_proj.config import host, user, password, db_name
 
+def check_student(login, passw):
+    bool = False
+    # connection = None
+    results = None
+    try:
+        connection = psycopg2.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=db_name
+        )
+
+        cursor = connection.cursor()
+        cursor.execute(
+                f"SELECT id, login, password FROM pages_schema.students WHERE login = '{login}' and password = '{passw}';"
+            )
+        
+        results = cursor.fetchall()
+        
+    except Exception as _ex:
+        print("[INFO] Error while working with PostgreSQL", _ex)
+    finally:
+        if connection:
+            bool = True
+            connection.commit()
+            connection.close()
+            print("[INFO] POSTGRE CLOSED")
+
+
+    return results
+
 def select_pr_by_teacher_id(id):
     bool = False
-    connection = None
+    # connection = None
     results = None
     try:
         connection = psycopg2.connect(
