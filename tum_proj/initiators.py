@@ -1,4 +1,9 @@
-# import ioc
+import ioc
+
+def init_values():
+    ioc.provide('WorkingSession.LastWatchedPR', dict())
+    ioc.provide('WorkingSession.ListOfSessions', dict())
+
 # from tum_proj.builders.build_pull_request_model import build_pull_rquest_model
 # from tum_proj.builders.build_user_model import test_build_user_model
 # from tum_proj.getters.get_last_checked_pr import get_last_checked_pr

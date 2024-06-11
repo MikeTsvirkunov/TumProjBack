@@ -1,4 +1,5 @@
 host = "127.0.0.1"
+port=5432
 user = "postgres"
-password = "123"
+password = "qwerty"
 db_name = "web_pages"
